@@ -1,0 +1,9 @@
+.app__body {
+  display: flex;
+}
+
+.app__cover {
+  display: grid;
+  place-items: center;
+  background-color: rgb(255, 143, 79);
+}

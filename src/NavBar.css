@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+}
+
+.navbar__middle {
+  display: flex;
+}
+
+.navbar__Proplink {
+  margin: 0px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.l1 {
+  background-color: rgb(58, 100, 238);
+  transition: 0.3s;
+}
+.l1:hover {
+  padding: 13px;
+}
+.l2 {
+  background-color: rgb(238, 58, 58);
+  transition: 0.3s;
+}
+.l2:hover {
+  padding: 13px;
+}
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__right__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  margin: 0px 10px;
+}
+.navbar__rightOption__dispName {
+  margin-left: 10px;
+}

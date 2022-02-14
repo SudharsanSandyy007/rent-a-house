@@ -1,0 +1,50 @@
+.postaproperty {
+  background-color: rgb(255, 143, 79);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.postaproperty__cover {
+  background-color: rgb(252, 243, 243);
+  padding: 15px;
+  border-radius: 5px;
+  min-height: 400px;
+  min-width: 800px;
+  margin: 50px;
+}
+.ipbox {
+  padding: 10px;
+  min-width: 400px;
+  border: 1px solid rgb(148, 148, 148);
+  color: rgb(80, 79, 79);
+}
+
+.postaproperty__middle > form {
+  display: flex;
+}
+
+.postaproperty__form__left,
+.postaproperty__form__right {
+  padding: 20px;
+}
+
+.postapropertyFormLeft__option,
+.postapropertyFormRight__option {
+  padding: 5px;
+}
+
+.postapropertyFormLeft__option > h4 {
+  margin-bottom: 10px;
+}
+.postapropertyFormRight__option > h4 {
+  margin-bottom: 10px;
+}
+
+option {
+  box-sizing: content-box;
+}
+
+.postprop___subbtn {
+  padding: 10px;
+  width: 100%;
+}
