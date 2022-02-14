@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import Post from "./Post";
 import db from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -26,7 +27,7 @@ function Feed() {
           <Post
             key={post.id}
             address={post.address}
-            appartmentType={post.appartmentType}
+            appartmentType={post.apartmentType}
             bathrooms={post.bathrooms}
             bedrooms={post.bedrooms}
             city={post.city}
@@ -34,7 +35,10 @@ function Feed() {
             displayName={post.displayName}
             kitchen={post.kitchen}
             locality={post.locality}
+            nearbyplaces={post.nearbyplaces}
+            ownerph={post.ownerph}
             parking={post.parking}
+            postURL={post.postURL}
             profilePic={post.profilePic}
             rent={post.rent}
             sqrft={post.sqrft}

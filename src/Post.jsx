@@ -24,7 +24,10 @@ function Post({
   displayName,
   kitchen,
   locality,
+  nearbyplaces,
+  ownerph,
   parking,
+  postURL,
   profilePic,
   rent,
   sqrft,
@@ -43,7 +46,7 @@ function Post({
       </div>
       <div className="post__row1">
         <h1>
-          {bedrooms}BHK {appartmentType} for Rent In {locality}
+          {bedrooms}BHK {appartmentType} for Rent In {locality} | {city}
         </h1>
         <p>{address}</p>
       </div>
@@ -65,10 +68,7 @@ function Post({
 
       <div className="post__row3">
         <div className="post__row3Left">
-          <img
-            src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg"
-            alt=""
-          />
+          <img src={postURL} alt="" />
         </div>
         <div className="post__row3Right">
           <div className="post__row3Right__top">
@@ -83,7 +83,7 @@ function Post({
 
             <div className="post__row3RightTopOption__right">
               <div className="post__row3RightTop_Option">
-                <BathtubSharp /> <span>{bathrooms} Bathroom (Attached)</span>
+                <BathtubSharp /> <span>{bathrooms} Bathroom </span>
               </div>
               <div className="post__row3RightTop_Option">
                 <DirectionsCar /> <span>Parking: {parking ? "yes" : "no"}</span>
@@ -93,8 +93,8 @@ function Post({
           <div className="post__row3Right__bottom">
             <div className="post__row3RightBottom__option">
               <h2>Contact Owner:</h2>
-              <p>Name: San</p>
-              <p>ph: 8434039302</p>
+              <p>Name: {displayName}</p>
+              <p>ph: {ownerph}</p>
             </div>
 
             <div className="post__row3RightBottom__option">
@@ -107,7 +107,7 @@ function Post({
         </div>
       </div>
 
-      <div className="post__row4">Nearby: D Mart, KFC, Raiway Station</div>
+      <div className="post__row4">Nearby Places: {nearbyplaces}</div>
     </div>
   );
 }

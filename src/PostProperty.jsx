@@ -19,6 +19,9 @@ function PostProperty() {
     const deposit = document.querySelector("#deposit").value;
     const kitchen = document.querySelector("#kitchen").value;
     const bathrooms = document.querySelector("#bathrooms").value;
+    const postURL = document.querySelector("#postURL").value;
+    const nearbyplaces = document.querySelector("#nearbyplaces").value;
+    const ownerph = document.querySelector("#ownerph").value;
     alert(apartmentType);
 
     const collRef = collection(db, "posts");
@@ -38,6 +41,9 @@ function PostProperty() {
       deposit: deposit,
       kitchen: kitchen,
       bathrooms: bathrooms,
+      postURL: postURL,
+      nearbyplaces: nearbyplaces,
+      ownerph: ownerph,
     })
       .then((result) => {
         console.log(result);
@@ -95,6 +101,20 @@ function PostProperty() {
                   <option value="3">3</option>
                 </select>
               </div>
+              <div className="postapropertyFormLeft__option">
+                <h4>Image URL*</h4>
+                <input
+                  type="text"
+                  id="postURL"
+                  placeholder="Enter Image URL"
+                  className="ipbox"
+                />
+              </div>
+              <div className="postapropertyFormLeft__option">
+                <button type="submit" className="postprop___subbtn">
+                  Submit
+                </button>
+              </div>
             </div>
             <div className="postaproperty__form__right">
               <div className="postapropertyFormRight__option">
@@ -146,12 +166,24 @@ function PostProperty() {
                   <option value="2">3</option>
                 </select>
               </div>
-            </div>
-
-            <div className="postproperty__bottom">
-              <button type="submit" className="postprop___subbtn">
-                Submit
-              </button>
+              <div className="postapropertyFormRight__option">
+                <h4>Nearby Places*</h4>
+                <input
+                  type="text"
+                  placeholder="Enter nearby places"
+                  id="nearbyplaces"
+                  className="ipbox"
+                />
+              </div>
+              <div className="postapropertyFormRight__option">
+                <h4>Owner ph.no:*</h4>
+                <input
+                  type="text"
+                  id="ownerph"
+                  placeholder="Enter owner's phone number"
+                  className="ipbox"
+                />
+              </div>
             </div>
           </form>
         </div>
