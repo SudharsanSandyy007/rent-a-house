@@ -1,5 +1,5 @@
-import { signInWithPopup } from "firebase/auth";
-import React from "react";
+import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import React, { useEffect } from "react";
 import { auth, provider } from "../firebase";
 import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
@@ -8,20 +8,25 @@ import "../styles/Login.css";
 
 function Login() {
   const [, dispatch] = useStateValue();
-  const login = () => {
-    //lgoin code
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
         dispatch({
-          user: result.user,
+          user: user,
           type: actionTypes.SET_USER,
         });
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
+  const login = () => {
+    signInWithPopup(auth, provider).catch((err) => {
+      console.log(err.message);
+    });
   };
+
   return (
     <div className="login__container">
       <div className="login">
