@@ -1,13 +1,13 @@
 import { signInWithPopup } from "firebase/auth";
 import React from "react";
-import { auth, provider } from "./firebase";
-import { actionTypes } from "./reducer";
-import { useStateValue } from "./StateProvider";
+import { auth, provider } from "../firebase";
+import { actionTypes } from "../reducer";
+import { useStateValue } from "../StateProvider";
 import HomeIcon from "@mui/icons-material/Home";
+import "../styles/Login.css";
 
-import "./Login.css";
 function Login() {
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const login = () => {
     //lgoin code
     signInWithPopup(auth, provider)

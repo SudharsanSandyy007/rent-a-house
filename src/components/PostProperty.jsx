@@ -1,10 +1,11 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import React from "react";
-import db from "./firebase";
-import "./PostProperty.css";
-import { useStateValue } from "./StateProvider";
+import db from "../firebase";
+import "../styles/PostProperty.css";
+import { useStateValue } from "../StateProvider";
+
 function PostProperty() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   const postProp = (e) => {
     e.preventDefault();

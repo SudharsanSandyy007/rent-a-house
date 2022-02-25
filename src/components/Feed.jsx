@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import Post from "./Post";
-import db from "./firebase";
+import db from "../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
-  const collRef = collection(db, "posts");
 
   useEffect(() => {
+    const collRef = collection(db, "posts");
     onSnapshot(collRef, (snapshot) => {
       let p = [];
       snapshot.docs.forEach((doc) => {

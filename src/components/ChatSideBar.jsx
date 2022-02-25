@@ -2,7 +2,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChatLog from "./ChatLog";
-import db from "./firebase";
+import db from "../firebase";
 
 function ChatSideBar() {
   const [chatAccnts, setchatAccnts] = useState([]);

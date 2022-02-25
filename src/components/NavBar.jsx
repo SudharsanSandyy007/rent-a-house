@@ -1,12 +1,12 @@
-import React from "react";
+import { FavoriteBorder } from "@mui/icons-material";
 import HomeIcon from "@mui/icons-material/Home";
-import "./NavBar.css";
-import { Explore, Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import { useStateValue } from "./StateProvider";
+import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/NavBar.css";
+import { useStateValue } from "../StateProvider";
 function NavBar() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <div className="navbar">
