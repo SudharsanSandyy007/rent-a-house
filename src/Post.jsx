@@ -13,9 +13,11 @@ import {
 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Post.css";
 function Post({
   address,
+  postid,
   appartmentType,
   bathrooms,
   bedrooms,
@@ -107,7 +109,12 @@ function Post({
         </div>
       </div>
 
-      <div className="post__row4">Nearby Places: {nearbyplaces}</div>
+      <div className="post__row4">
+        Nearby Places: {nearbyplaces}{" "}
+        <Link to={`/chat/${postid}`}>
+          <button>Chat with owner</button>
+        </Link>
+      </div>
     </div>
   );
 }

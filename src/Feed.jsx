@@ -19,13 +19,13 @@ function Feed() {
     });
   }, []);
 
-  console.log(posts);
   return (
     <div className="feed">
       {posts.map((post) => {
         return (
           <Post
             key={post.id}
+            postid={post.id}
             address={post.address}
             appartmentType={post.apartmentType}
             bathrooms={post.bathrooms}

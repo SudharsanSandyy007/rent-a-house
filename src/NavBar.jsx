@@ -19,7 +19,7 @@ function NavBar() {
 
       <div className="navbar__middle">
         <div className="navbar__middleOption">
-          <Link className="navbar__Proplink l1" to="/">
+          <Link className="navbar__Proplink l1" to="/rentahouse">
             RENT A PROPERTY
           </Link>
         </div>
@@ -32,7 +32,9 @@ function NavBar() {
 
       <div className="navbar__right">
         <div className="navbar__right__option">
-          <HomeIcon />
+          <Link className="navbar__Proplink l1" to="/">
+            <HomeIcon />
+          </Link>
         </div>
 
         <div className="navbar__right__option">
