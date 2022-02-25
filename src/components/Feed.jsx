@@ -1,22 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import db from "../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
+import { useLocation } from "react-router-dom";
 
 function Feed() {
+  const { search } = useLocation();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const collRef = collection(db, "posts");
-    onSnapshot(collRef, (snapshot) => {
+    let q = query(collRef);
+    if (search) {
+      const city = new URLSearchParams(search).get("city");
+      q = query(collRef, where("city", "==", city));
+    }
+
+    getDocs(q).then((snapshot) => {
       let p = [];
       snapshot.docs.forEach((doc) => {
         p.push({ ...doc.data(), id: doc.id });
       });
-
       setPosts(p);
     });
-  }, []);
+  }, [search]);
 
   return (
     <div className="feed">
