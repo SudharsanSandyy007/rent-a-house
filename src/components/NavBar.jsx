@@ -5,8 +5,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 import { useStateValue } from "../StateProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { actionTypes } from "../reducer";
 function NavBar() {
-  const [{ user }] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+
+  const logout = () => {
+    signOut(auth)
+      .then(() =>
+        dispatch({
+          user: null,
+          type: actionTypes.SET_USER,
+        })
+      )
+      .catch((e) => console.log(e));
+  };
 
   return (
     <div className="navbar">
@@ -41,7 +55,9 @@ function NavBar() {
           <FavoriteBorder />
         </div>
         <div className="navbar__right__option">
-          <Avatar src={user.photoURL} />
+          <span onClick={logout} title="Logout">
+            <Avatar src={user.photoURL} />
+          </span>
           <h4 className="navbar__rightOption__dispName">{user.displayName}</h4>
         </div>
       </div>
