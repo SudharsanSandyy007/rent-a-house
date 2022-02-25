@@ -1,20 +1,15 @@
 import {
   BathtubSharp,
-  BookmarkBorder,
   Countertops,
   DirectionsCar,
-  FavoriteBorder,
   FavoriteBorderOutlined,
   Flag,
-  ForumSharp,
   HotelSharp,
-  MoreHoriz,
-  Share,
 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Post.css";
+import "../styles/Post.css";
 function Post({
   address,
   postid,

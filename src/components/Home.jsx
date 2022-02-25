@@ -1,6 +1,6 @@
 import { BookRounded, SearchOutlined } from "@mui/icons-material";
 import React from "react";
-import "./Home.css";
+import "../styles/Home.css";
 function Home() {
   const fetchProperties = (e) => {
     e.preventDefault();

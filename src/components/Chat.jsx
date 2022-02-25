@@ -1,10 +1,10 @@
-import { collection, doc, onSnapshot } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { doc, onSnapshot } from "firebase/firestore";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "../styles/Chat.css";
 import ChatBox from "./ChatBox";
 import ChatSideBar from "./ChatSideBar";
-import db from "./firebase";
-import "./Chat.css";
+import db from "../firebase";
 
 function Chat() {
   const { roomId } = useParams();
@@ -16,7 +16,7 @@ function Chat() {
         console.log(snapshot.data().ownerph);
       });
     }
-  }, []);
+  }, [roomId]);
 
   return (
     <div className="chat">

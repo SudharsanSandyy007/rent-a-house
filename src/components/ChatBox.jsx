@@ -1,8 +1,8 @@
-import { collection, doc, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./chatbox.css";
-import db from "./firebase";
+import "../styles/chatbox.css";
+import db from "../firebase";
 
 function ChatBox() {
   const { roomId } = useParams();
@@ -25,14 +25,11 @@ function ChatBox() {
       `chats/${roomId}/msgs/${receiverId}/chatmsgs/`
     );
     onSnapshot(colref1, (snapshot) => {
-      let tempmsgs = [];
-      snapshot.docs.map((doc) => {
-        tempmsgs.push(doc.data());
-      });
+      const tempmsgs = snapshot.docs.map((doc) => doc.data());
       setMsgs(tempmsgs);
       console.log(tempmsgs);
     });
-  }, []);
+  }, [roomId, receiverId]);
   console.log(receiverId);
 
   return (

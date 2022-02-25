@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Feed from "./Feed";
-import Login from "./Login";
-import MessageBar from "./MessageBar";
-import NavBar from "./NavBar";
+import "./styles/App.css";
+import Feed from "./components/Feed";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 import { useStateValue } from "./StateProvider";
-import { Routes, Route, Link, useParams } from "react-router-dom";
-import PostProperty from "./PostProperty";
-import Home from "./Home";
-import { auth } from "./firebase";
-import Chat from "./Chat";
-import ChatSideBar from "./ChatSideBar";
-import ChatBox from "./ChatBox";
+import { Routes, Route } from "react-router-dom";
+import PostProperty from "./components/PostProperty";
+import Home from "./components/Home";
+import Chat from "./components/Chat";
+import ChatSideBar from "./components/ChatSideBar";
+import ChatBox from "./components/ChatBox";
+
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   return (
     <div className="app">
       {user ? (

@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material";
 import React from "react";
-import "./chatlog.css";
+import "../styles/chatlog.css";
 function ChatLog({ email }) {
   return (
     <div className="chatlog">
