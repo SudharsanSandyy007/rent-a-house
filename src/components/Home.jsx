@@ -1,11 +1,16 @@
 import { BookRounded, SearchOutlined } from "@mui/icons-material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
+
 function Home() {
+  const navigate = useNavigate();
+
   const fetchProperties = (e) => {
     e.preventDefault();
-    window.location.href = "/rentahouse";
+    navigate(`/rentahouse?city=${e.target.value}`);
   };
+
   return (
     <div className="home">
       <div className="home__container">
@@ -19,7 +24,11 @@ function Home() {
               name=""
               id=""
               onChange={fetchProperties}
+              value={"Select a city"}
             >
+              <option value="Select a city" disabled>
+                Select a city
+              </option>
               <option value="chennai">Chennai</option>
               <option value="vellore">Vellore</option>
               <option value="coimbatore">Coimbatore</option>
